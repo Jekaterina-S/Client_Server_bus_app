@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
     sendAreaButton.addEventListener('click', () => {
         const selectedArea = areaInput.value;
         if (selectedArea) {
-            fetchData(`http://busstopsearch-a6hdaph8acgpdyhj.swedencentral-01.azurewebsites.net/stops?area=${encodeURIComponent(selectedArea)}`, (stops) => {
+            fetchData(`https://busstopsearch-a6hdaph8acgpdyhj.swedencentral-01.azurewebsites.net/stops?area=${encodeURIComponent(selectedArea)}`, (stops) => {
                 stopDropdown.innerHTML = '';
                 stops.forEach(stop => {
                     const listItem = document.createElement('li');
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Fetch areas on page load
-    fetchData(`http://busstopsearch-a6hdaph8acgpdyhj.swedencentral-01.azurewebsites.net/areas`, (areas) => {
+    fetchData(`https://busstopsearch-a6hdaph8acgpdyhj.swedencentral-01.azurewebsites.net/areas`, (areas) => {
         areas.forEach(area => {
             const listItem = document.createElement('li');
             listItem.innerHTML = `<a class="dropdown-item" href="#">${area.area}</a>`;
