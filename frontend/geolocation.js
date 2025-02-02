@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Fetch nearest stop based on geolocation
     async function fetchNearestStop(latitude, longitude) {
         try {
-            const response = await fetch(`http://localhost:3000/nearest-stop?latitude=${encodeURIComponent(latitude)}&longitude=${encodeURIComponent(longitude)}`);
+            const response = await fetch(`http://busstopsearch-a6hdaph8acgpdyhj.swedencentral-01.azurewebsites.net/nearest-stop?latitude=${encodeURIComponent(latitude)}&longitude=${encodeURIComponent(longitude)}`);
             
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
