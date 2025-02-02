@@ -7,7 +7,7 @@ require('dotenv').config();
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors( origin:'https://busstopsearch-a6hdaph8acgpdyhj.swedencentral-01.azurewebsites.net'));
+app.use(cors( {origin:'https://busstopsearch-a6hdaph8acgpdyhj.swedencentral-01.azurewebsites.net'} ));
 
 let poolPromise = connectToDatabase();
 
