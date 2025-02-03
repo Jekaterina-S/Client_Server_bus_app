@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Fetch buses for the selected stop
     async function fetchBuses(stopId) {
         try {
-            const response = await fetch(`https://busstopsearch-a6hdaph8acgpdyhj.swedencentral-01.azurewebsites.net/buses?stop=${encodeURIComponent(stopId)}`);
+            const response = await fetch(`https://client-server-bus-app.onrender.com/buses?stop=${encodeURIComponent(stopId)}`);
             const buses = await response.json();
 
             // Clear existing bus buttons
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            const response = await fetch(`https://busstopsearch-a6hdaph8acgpdyhj.swedencentral-01.azurewebsites.net/arrival-times?route=${routeId}&stop=${stopId}&reference_date=${encodeURIComponent(localISOTime)}&offset=${offset}`);
+            const response = await fetch(`https://client-server-bus-app.onrender.com/arrival-times?route=${routeId}&stop=${stopId}&reference_date=${encodeURIComponent(localISOTime)}&offset=${offset}`);
             const arrivalTimes = await response.json();
 
             const groupedArrivalTimes = groupArrivalTimesByTrip(arrivalTimes);
