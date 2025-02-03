@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Fetch nearest stop based on geolocation
     async function fetchNearestStop(latitude, longitude) {
         try {
-            const response = await fetch(`https://busstopsearch-a6hdaph8acgpdyhj.swedencentral-01.azurewebsites.net/nearest-stop?latitude=${encodeURIComponent(latitude)}&longitude=${encodeURIComponent(longitude)}`);
+            const response = await fetch(`https://client-server-bus-app.onrender.com/nearest-stop?latitude=${encodeURIComponent(latitude)}&longitude=${encodeURIComponent(longitude)}`);
             
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Custom event for nearest stop bus fetch
             document.dispatchEvent(new CustomEvent('userStopSelected', { detail: selectedStopId }));
         } catch (error) {
-            console.error(`Error fetching data from https://busstopsearch-a6hdaph8acgpdyhj.swedencentral-01.azurewebsites.net/nearest-stop:`, error);
+            console.error(`Error fetching data from https://client-server-bus-app.onrender.com/nearest-stop`, error);
             userNearestStop.innerHTML = 'Error fetching nearest stop';
             userLocationArea.innerHTML = 'Please try again later';
         }
