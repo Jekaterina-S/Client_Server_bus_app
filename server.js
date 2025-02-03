@@ -9,11 +9,6 @@ require('dotenv').config();
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static('../frontend'));
-
-app.get("*", (req, res) => { //our GET route needs to point to the index.html in our build
-    res.sendFile(path.resolve(__dirname, "../frontend/index.html"));
-  });
 
 const PORT = process.env.PORT || 5000;
 
