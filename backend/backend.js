@@ -11,10 +11,6 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static('../frontend'));
 
-app.get("*", (req, res) => { //our GET route needs to point to the index.html in our build
-    res.sendFile(path.resolve(__dirname, "../frontend/index.html"));
-  });
-
 const PORT = process.env.PORT || 5000;
 
 let poolPromise = connectToDatabase();
@@ -225,6 +221,11 @@ function parseTimeString(timeStr, referenceDate) {
     date.setHours(validHours, minutes, seconds);
     return date;
 }
+
+// Catch all
+app.get("*", (req, res) => { //our GET route needs to point to the index.html in our build
+    res.sendFile(path.resolve(__dirname, "../frontend/index.html"));
+  });
 
 // Start the server
 app.listen(PORT, () => {
